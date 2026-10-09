@@ -1,0 +1,5 @@
+- name: Create Docker network
+  community.docker.docker_network:
+    name: app-network
+  vars:
+    ansible_python_interpreter: /opt/docker_venv/bin/python3

@@ -1,0 +1,14 @@
+- name: Run database
+  community.docker.docker_container:
+    name: database
+    image: valentino3112/tp-database:latest
+    pull: true
+    restart_policy: unless-stopped
+    networks:
+      - name: app-network
+    env:
+      POSTGRES_DB: "{{ db_name }}"
+      POSTGRES_USER: "{{ db_user }}"
+      POSTGRES_PASSWORD: "{{ db_password }}"
+  vars:
+    ansible_python_interpreter: /opt/docker_venv/bin/python3
